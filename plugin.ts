@@ -8,10 +8,11 @@
 import { Plugin } from '../../src/index'
 
 export class SampleCommandPlugin extends Plugin {
+  config = { testProp: false }
+
   constructor() {
     super()
-
-    console.log('SampleCommand Plugin Loaded - Test Patch')
+    console.log('SampleCommand Plugin Loaded')
   }
 }
 
