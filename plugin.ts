@@ -27,12 +27,13 @@ export class SampleCommandPlugin extends Plugin {
         serverOnly: false
       },
       plugin: this,
-      slash: new SlashCommandBuilder().setName('test').setDescription('Testing Plugin'),
+      slash: new SlashCommandBuilder().setName('test').setDescription('Testing Plugin - old'),
       type: 'interaction'
     })
   }
 
   public async routeCommand(plugin: SampleCommandPlugin, routed: RoutedInteraction) {
+    console.log('routeCommand')
     return await routed.reply('Should Reply', true)
   }
 }
