@@ -2,10 +2,12 @@
  * @name sample-command
  * @pluginURL https://raw.githubusercontent.com/rileyio/sample-command/main/plugin.ts
  * @repo rileyio/sample-command
- * @version 1.0.2
+ * @version 1.0.1
  */
 
 import { Plugin } from '../../src/index'
+import { RoutedInteraction } from '../../src/router'
+import { SlashCommandBuilder } from 'discord.js'
 
 export class SampleCommandPlugin extends Plugin {
   config = { testProp: false }
@@ -13,6 +15,25 @@ export class SampleCommandPlugin extends Plugin {
   constructor() {
     super()
     console.log('SampleCommand Plugin Loaded')
+  }
+
+  public onEnabled() {
+    this.bot.Router.addRoute({
+      category: 'Plugin',
+      controller: this.routeCommand,
+      name: 'test',
+      permissions: {
+        defaultEnabled: false,
+        serverOnly: false
+      },
+      plugin: this,
+      slash: new SlashCommandBuilder().setName('test').setDescription('Testing Plugin'),
+      type: 'interaction'
+    })
+  }
+
+  public async routeCommand(plugin: SampleCommandPlugin, routed: RoutedInteraction) {
+    return await routed.reply('Should Reply', true)
   }
 }
 
