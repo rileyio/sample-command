@@ -2,7 +2,7 @@
  * @name sample-command
  * @pluginURL https://raw.githubusercontent.com/rileyio/sample-command/master/plugin.ts
  * @repo rileyio/sample-command
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 import { Plugin } from '../../src/index'
