@@ -27,7 +27,7 @@ export class SampleCommandPlugin extends Plugin {
         serverOnly: false
       },
       plugin: this,
-      slash: new SlashCommandBuilder().setName('test').setDescription('Testing Plugin - old'),
+      slash: new SlashCommandBuilder().setName('test').setDescription('Testing Plugin'),
       type: 'interaction'
     })
   }
